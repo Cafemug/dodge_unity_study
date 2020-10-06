@@ -10,18 +10,17 @@ public class Bullet : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        bulletRigidbdoy = GetCompnent<Rigidbody>();
+        bulletRigidbdoy = GetComponent<Rigidbody>();
         bulletRigidbdoy.velocity = transform.forward * speed;
 
-        Destory(gameObject, 3f);
+        Destroy(gameObject, 3f);
     }
     
-    void Destory(Object obj, float t);
 
     void OnTriggerEnter(Collider other)
     {
         if(other.tag == "Player"){
-            PlayerController playerController = other.GetCompnent<PlayerController>();
+            PlayerController playerController = other.GetComponent<PlayerController>();
 
             if(playerController != null){
                 playerController.Die();
